@@ -9,7 +9,7 @@ UPDATE_TO_DIR="/home/ste"
 
 echo "Rsyncing the new install over the current install, skipping any other mounts."
 
-rsync -c -a -x --delete --exclude='steapp/userdata/' --exclude='*.db' --exclude='uploads/' --exclude='printer_version' "${UPDATE_FROM_DIR}/" "${UPDATE_TO_DIR}/"
+rsync -c -a -x --exclude='steapp/userdata/' --exclude='*.db' --exclude='uploads/' --exclude='printer_version' "${UPDATE_FROM_DIR}/" "${UPDATE_TO_DIR}/"
 
 #Copy firmware to the USB Mass storage in order to be installed on STE Board
 MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
