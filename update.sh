@@ -17,6 +17,7 @@ MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
 SERIAL_NUMBER="$(cat /home/ste/printer_version)"
 PRINTER_MODEL=$(echo $SERIAL_NUMBER | cut -c 6)
 cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-config.txt" "$MASS_STORAGE_MOUNT/config.txt"
+
 #copy firmware
 cp "$UPDATE_TO_DIR/smoothie-build/main.bin" "$MASS_STORAGE_MOUNT/firmware.bin"
 
