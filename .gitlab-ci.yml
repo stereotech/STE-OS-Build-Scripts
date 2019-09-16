@@ -1,0 +1,10 @@
+stages:
+  - deploy
+
+deployScripts:
+  stage: deploy
+  image: python:latest
+  before_script: 
+    - pip install awscli
+  script:
+    - aws s3 cp update.sh s3://${BUCKET_NAME}/steapp/build-scripts/update.sh 
