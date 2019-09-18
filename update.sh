@@ -23,3 +23,4 @@ cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-config.txt" "$MASS_STOR
 cp "$UPDATE_TO_DIR/smoothie-build/main.bin" "$MASS_STORAGE_MOUNT/firmware.bin"
 
 echo "Update complete"
+sudo reboot
