@@ -15,7 +15,7 @@ rsync -c -a -x --exclude='ste-update' --exclude='steapp/userdata/' --exclude='*.
 MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
 #Prepare needed config
 SERIAL_NUMBER="$(cat /home/ste/printer_version)"
-PRINTER_MODEL=$(echo $SERIAL_NUMBER | cut -c 6-13)
+PRINTER_MODEL=$(echo $SERIAL_NUMBER | cut -c 1-6)
 echo "Serial number: $SERIAL_NUMBER | Model: $PRINTER_MODEL"
 cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-config.txt" "$MASS_STORAGE_MOUNT/config.txt"
 
