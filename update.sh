@@ -12,6 +12,8 @@ echo "Rsyncing the new install over the current install, skipping any other moun
 rsync -c -a -x --exclude='ste-update' --exclude='steapp/userdata/' --exclude='*.db' --exclude='uploads/' --exclude='printer_version' "${UPDATE_FROM_DIR}/" "${UPDATE_TO_DIR}/"
 
 chmod +x "$UPDATE_TO_DIR/steapp/panel/ru.stereotech.steapp"
+chmod +x "$UPDATE_TO_DIR/steapp/STEApp"
+
 #Copy firmware to the USB Mass storage in order to be installed on STE Board
 MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
 #Prepare needed config
