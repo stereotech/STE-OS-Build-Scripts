@@ -18,11 +18,15 @@ chmod +x "$UPDATE_TO_DIR/steapp/STEApp"
 MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
 #Prepare needed config
 SERIAL_NUMBER="$(cat /home/ste/printer_version)"
+PRINTER_HOSTNAME="$(cat /home/ste/printer_hostname)"
 PRINTER_MODEL=$(echo $SERIAL_NUMBER | cut -c 1-6)
 echo "Serial number: $SERIAL_NUMBER | Model: $PRINTER_MODEL"
 cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-config.txt" "$MASS_STORAGE_MOUNT/config.txt"
 
 #copy firmware
 cp "$UPDATE_TO_DIR/smoothie-build/main.bin" "$MASS_STORAGE_MOUNT/firmware.bin"
+
+sudo /bin/sed -i "s/ST-AAA/$PRINTER_HOSTNAME/g" /etc/hostname
+sudo /bin/sed -i "s/ST-AAA/$PRINTER_HOSTNAME/g" /etc/hosts
 
 echo "Update complete"
