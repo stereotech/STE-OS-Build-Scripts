@@ -29,7 +29,7 @@ cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-config.txt" "$MASS_STOR
 #copy firmware
 cp "$UPDATE_TO_DIR/smoothie-build/main.bin" "$MASS_STORAGE_MOUNT/firmware.bin"
 
-sed -i "s/ST-AAA/$PRINTER_HOSTNAME/g" /etc/hostname
-sed -i "s/ST-AAA/$PRINTER_HOSTNAME/g" /etc/hosts
+/usr/bin/sudo /bin/sed -i "s/ST-AAA/$PRINTER_HOSTNAME/g" /etc/hostname
+/usr/bin/sudo /bin/sed -i "s/ST-AAA/$PRINTER_HOSTNAME/g" /etc/hosts
 
 echo "Update complete"
