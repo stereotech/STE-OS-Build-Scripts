@@ -23,8 +23,11 @@ MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
 SERIAL_NUMBER="$(cat /home/ste/printer_version)"
 PRINTER_HOSTNAME="$(cat /home/ste/printer_hostname)"
 PRINTER_MODEL=$(echo $SERIAL_NUMBER | cut -c 1-6)
+MANUFACTURING_WEEK=$(echo $SERIAL_NUMBER | cut -c 7-8)
+MANUFACTURING_YEAR=$(echo $SERIAL_NUMBER | cut -c 9-10)
 echo "Serial number: $SERIAL_NUMBER | Model: $PRINTER_MODEL"
-cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-config.txt" "$MASS_STORAGE_MOUNT/config.txt"
+echo "Manufacturing date: week $MANUFACTURING_WEEK | year $MANUFACTURING_YEAR"
+cp "$UPDATE_TO_DIR/smoothie-build/configs/$PRINTER_MODEL-$MANUFACTURING_YEAR-$MANUFACTURING_WEEK-config.txt" "$MASS_STORAGE_MOUNT/config.txt"
 
 #copy firmware
 cp "$UPDATE_TO_DIR/smoothie-build/main.bin" "$MASS_STORAGE_MOUNT/firmware.bin"
