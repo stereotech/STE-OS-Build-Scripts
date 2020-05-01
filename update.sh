@@ -12,7 +12,7 @@ echo "Rsyncing the new install over the current install, skipping any other moun
 rsync -c -a -x --exclude='ste-update' --exclude='steapp/userdata/' --exclude='*.db' --exclude='uploads/' --exclude='printer_version' "${UPDATE_FROM_DIR}/" "${UPDATE_TO_DIR}/"
 
 # TODO: Remove in the next update!!!
-rm "$UPDATE_TO_DIR/steapp/cluster.db"
+# rm "$UPDATE_TO_DIR/steapp/cluster.db"
 
 chmod +x "$UPDATE_TO_DIR/steapp/panel/ru.stereotech.steapp"
 chmod +x "$UPDATE_TO_DIR/steapp/STEApp"
