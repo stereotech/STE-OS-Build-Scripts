@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make executable
+        run: chmod +x update.sh
+      
+      - uses: ItsKarma/aws-cli@v1.70.0
+        with:
+          args: s3 cp update.sh s3://${{ secrets.BUCKET_NAME }}/steapp/build-scripts/update.sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
+   
