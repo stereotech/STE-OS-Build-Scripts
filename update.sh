@@ -16,7 +16,7 @@ chmod +x "$UPDATE_TO_DIR/steapp/STEApp"
 
 OCTOPRINT_WORK_DIR="/home/ste/.octoprint"
 
-rsync -c -a -x "${UPDATE_TO_DIR}/configuration" "${OCTOPRINT_WORK_DIR}/"
+rsync -c -a -x "${UPDATE_TO_DIR}/steapp/configuration" "${OCTOPRINT_WORK_DIR}/"
 
 #Copy firmware to the USB Mass storage in order to be installed on STE Board
 MASS_STORAGE_MOUNT="/home/ste/uploads/SD"
