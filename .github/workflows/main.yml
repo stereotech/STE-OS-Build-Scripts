@@ -17,9 +17,7 @@ jobs:
       - name: Make executable
         run: chmod +x update.sh
       
-      - uses: ItsKarma/aws-cli@v1.70.0
-        with:
-          args: s3 cp update.sh s3://${{ secrets.BUCKET_NAME }}/steapp/build-scripts/update.sh --acl public-read
+      - run: aws s3 --endpoint-url=https://storage.yandexcloud.net cp update.sh s3://${{ secrets.BUCKET_NAME }}/steapp/build-scripts/update.sh --acl public-read
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
